@@ -99,7 +99,7 @@ public class Search extends HttpServlet {
 	}
 		
 	public void sendListAcount(HttpServletRequest request){
-		request.setAttribute("listeAnnualAccounts", listeAnnualAccounts);
+		//request.setAttribute("listeAnnualAccounts", listeAnnualAccounts);
 		//*System.out.println( "debut du get"+annualAccountDao.listener());
 		//request.setAttribute("companiesww", annualAccountDao.listener());
 	}
@@ -117,7 +117,7 @@ public class Search extends HttpServlet {
 
 	public void nextPage(int nbNextPages){
 		for(int i=0;i<nbNextPages;i++){
-			this.fillAccountList(this.accountList);
+			this.fillAccountList();
 		}
 	}
 
