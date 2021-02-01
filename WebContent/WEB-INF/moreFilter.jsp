@@ -37,9 +37,9 @@
 							  <div class="col-sm-2">
 							    <select class="custom-select" 
 							    id="<c:out value ="${varName}"/>Option1" name="<c:out value ="${varName}"/>Option1">
-								    <option value=">">supérieur à </option>
-								    <option value="=">égale à </option>
-								    <option value="<">inférieur à</option>
+								    <option value="1">supérieur à </option>
+								    <option value="2">égale à </option>
+								    <option value="3">inférieur à</option>
 								  </select>
 							  </div>
 							  <div class="col-sm-3">
@@ -49,9 +49,9 @@
 							  <div class="col-sm-2">
 							    <select class="custom-select" 
 							    id="<c:out value ="${varName}"/>Option2" name="<c:out value ="${varName}"/>Option2">
-								    <option value="<">inférieur à</option>
-								    <option value="=">égale à </option>
-								    <option value=">">supérieur à </option>
+								    <option value="3">inférieur à</option>
+								    <option value="2">égale à </option>
+								    <option value="1">supérieur à </option>
 								  </select>
 							  </div>
 							  <div class="col-sm-3">

@@ -15,7 +15,8 @@
 			<form method="post" action="search" class="container g-3">
 			  <div class="row">
 				  <div class="col-md-11  col-auto ">
-				    <input type="number"class="form-control" id="SIRENsimple1" name="SIRENsimple1" placeholder="siren...">
+				    <input type="number"class="form-control" id="sirensimple1" name="sirensimple1" placeholder="siren...">
+				
 				  </div>
 				
 				  <div class="col-md-1 col-auto ">
@@ -32,10 +33,17 @@
 		</div>
 
 		<div class="container">
+
+		<c:forEach var="attribut" items="${attributs}" varStatus="status">
+		{status.count}
+					<p><c:out value =" ${attribut}"/></p>
+				</c:forEach>
 			<h2>Liste des entreprises</h2>
+			<c:out value =" ${attribut}"/>
+			<c:if test="${ !empty error }"><p style="color:red;"><c:out value="${ erreur }" /></c:if>
 			
 			<div class="row list-group">
-				<c:forEach var="annualAccount" items="${companies}" varStatus="status">
+				<c:forEach var="annualAccount" items="${listeAnnualAccounts}" varStatus="status">
 				  	<div class="container-fluid list-group-item list-group-item-action list-group-item-light " type="button" data-toggle="modal" data-target="#detailannualAccount<c:out value ="${statut.count}"/>">
 						<div class="row">
 							<div class="col-6 ">
@@ -108,13 +116,3 @@
 	</body>
 	<%@ include file="footer.jsp" %>
 </html>
-<!-- 					
-	<a href="#" class="list-group-item list-group-item-action list-group-item-light">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">Chiffre d'affaire : <c:out value ="${annualAccount.chiffreAffaire} : "/></h5>
-      <small>2021</small>
-    </div>
-    <p class="mb-1">Resultats exploitation : <c:out value ="${annualAccount.resultatExploitation}"/></p>
- 	<small>By DataCompanies</small>
-</a>
- -->

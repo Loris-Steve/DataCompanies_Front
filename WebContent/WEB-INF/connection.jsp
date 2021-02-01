@@ -10,7 +10,7 @@
   	<body class="container h-100 bg-light">
     
 		<main class="row justify-content-center align-items-center h-100 text-center">
-		  <form method="post" action="conection" class="col-lg-6 col-12 ">
+		  <form method="post" action="search" class="col-lg-6 col-12 ">
 		    <!-- <img class="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
 		    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 		    	<div class="col-12 mt-4 ">
@@ -42,7 +42,6 @@
 		    <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
 		   	<c:if test="${ !empty erreur }"><p style="color:red;"><c:out value="${ erreur }" /></c:if>
 		   	<c:if test="${ !empty user }"><p style="color:red;">succes : <c:out value="${ user.firstName }" /></c:if>
-		   	<c:if test="${ user == null}"><p style="color:red;">x<c:out value="Pas de connexion" /></c:if>
 		   	
 		  </form>
 		</main>

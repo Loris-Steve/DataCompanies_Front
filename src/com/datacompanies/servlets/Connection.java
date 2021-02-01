@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.datacompanies.beans.BeanException;
-import com.datacompanies.beans.AnnualAccount;
 import com.datacompanies.beans.DAOException;
+import com.datacompanies.beans.DictionaryAccount;
 import com.datacompanies.beans.User;
 import com.datacompanies.dao.DaoFactory;
 import com.datacompanies.dao.UserDao;
@@ -26,6 +26,7 @@ import com.datacompanies.forms.InscriptionForm;
 @WebServlet("/Connection")
 public class Connection extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private DictionaryAccount dict = new DictionaryAccount();
     private UserDao userDao; 
     
     public void init() throws ServletException {
@@ -37,24 +38,28 @@ public class Connection extends HttpServlet {
         super();
     }
 
+	public void initializationSearchPage(HttpServletRequest request) {
+    	try {
+			request.setAttribute("annualAccountVarNames",dict.getAttributsName());
+			request.setAttribute("annualAccountStringVarNames", dict.getStringAttributsName());
+
+		} catch (BeanException e) {
+			request.setAttribute("error", "Impossible de charger les filtres de type chaîne de caractère");//+e.getMessage());
+		}
+	}
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/connection.jsp").forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String redirection = "connection" ; 
+		String redirection = "" ; 
 		// traitement de formulaire
 		ConnectionForm form = new ConnectionForm();
 		User user = form.createUserConnection(request);
 		System.out.println("Vérification de l'utilisateur : " + user.getEmail() + " mp : "+user.getPassword());
-	
-		AnnualAccount annualAccount = new AnnualAccount();
-		List<String> annualAccountVarNames = new ArrayList<String>();
-		List<String> annualAccountStringVarNames = new ArrayList<String>();
 		
 		try {
 			User userConnection = userDao.findUser(user);
@@ -62,23 +67,13 @@ public class Connection extends HttpServlet {
 			if(userConnection.getFirstName() != null) {
 				request.setAttribute("user", userConnection);
 				redirection = "search";
+				initializationSearchPage(request);
 			}
-
-			// 	On récupère les différents attribut d'une entreprise
-			try {
-				annualAccountVarNames = annualAccount.getAttributsName();
-				annualAccountStringVarNames = annualAccount.getStringAttributsName();
-			} catch (BeanException e1) {
-				request.setAttribute("erreur", "Impossible de charger les filters");//+e.getMessage());
-			}
-
-			request.setAttribute("annualAccountStringVarNames", annualAccountStringVarNames);
-			request.setAttribute("annualAccountVarNames", annualAccountVarNames);
 			
 		} catch (BeanException e) {
-			request.setAttribute("erreur", "Impossible de se connecter ");//+e.getMessage());
+			request.setAttribute("erreur", "Impossible de se connecter ");
 		} catch (DAOException e) {
-			request.setAttribute("erreur", e.getMessage());//+e.getMessage());
+			request.setAttribute("erreur", e.getMessage());
 		}
 
 		this.getServletContext().getRequestDispatcher("/WEB-INF/"+redirection+".jsp").forward(request, response);

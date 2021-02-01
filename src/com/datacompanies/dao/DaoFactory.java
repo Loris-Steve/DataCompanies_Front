@@ -58,10 +58,6 @@ public class DaoFactory {
      * Méthodes de récupération de l'implémentation des différents Dao (un seul
      * pour le moment)
      */
-	   public AnnualAccountDao getAnnualAccountDao() {
-	       return new AnnualAccountDaoImpl( this );
-	   }
-   
 	    public UserDao getUsersDao() {
 	        return new UserDaoImpl( this );
 	    }
