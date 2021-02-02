@@ -11,6 +11,7 @@ public class DictionaryAccount {
 
 	private String siren = "siren";// i* (identite)
 
+	
 	private String adresse = "adresse"; // i* 
 	
 	private String denomination = "denomination"; // i*

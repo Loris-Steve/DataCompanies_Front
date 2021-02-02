@@ -91,7 +91,7 @@ public class Search extends HttpServlet {
 		try {
 			// on créer une requête avec les valeurs saisies par l'utilisateur
 			queryUser = searchAccountform.verifyAttributs(request);
-			Requests req = new Requests("localhost"); // localhost
+			Requests req = new Requests("ec2-3-138-68-101.us-east-2.compute.amazonaws.com"); // localhost
 			result = req.doRequest(queryUser);
 			
 			System.out.println("Mango cursor : "+result.hasNext());
@@ -147,6 +147,7 @@ public class Search extends HttpServlet {
 	                annualAccount.put("FJ",a.get(0).toString());
 				}
 				if (doc.get("GG") != null){
+					System.out.println("GG present : "+doc.get("GG").toString());
 					ArrayList<Object> a = (ArrayList<Object>)doc.get("GG");
 					annualAccount.put("GG",a.get(0).toString());
 				}

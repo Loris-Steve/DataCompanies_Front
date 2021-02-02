@@ -47,14 +47,17 @@
 				  	<div class="container-fluid list-group-item list-group-item-action list-group-item-light " type="button" data-toggle="modal" data-target="#detailannualAccount<c:out value ="${statut.count}"/>">
 						<div class="row">
 							<div class="col-6 ">
-								<c:forEach begin="0" end="4" var="varName" items="${annualAccountVarNames}">
-							    		<p class="mb-1"><c:out value ="${varName} : "/> <c:out value =" ${annualAccount[varName]}"/></p>
+								<c:forEach begin="0" end="8" var="varName" items="${annualAccountVarNames}">
+							    		<c:if test="${ !empty annualAccount[varName] }"><p class="mb-1"><c:out value ="${varName} : "/> <c:out value =" ${annualAccount[varName]}"/></p></c:if>
 								</c:forEach>
 							</div>
 							<div class="col-6">
-								<c:forEach begin="5" end="8" var="varName" items="${annualAccountVarNames}">
-							    		<p class="mb-1"><c:out value ="${varName} : "/><c:out value =" ${annualAccount[varName]}"/></p>
-								</c:forEach>
+								
+								<p class="mb-1"><c:out value ="Chiffre D'affaire : "/><c:out value =' ${annualAccount["FJ"]}'/></p>
+								<p class="mb-1"><c:out value ="Resultat d'exploitaion : "/><c:out value =' ${annualAccount["GG"]}'/></p>
+								<p class="mb-1"><c:out value ="bénéfice ou perte : "/><c:out value =' ${annualAccount["HN"]}'/></p>
+								<p class="mb-1"><c:out value ="total actif : "/><c:out value =' ${annualAccount["CO"]}'/></p>
+								
 							</div>
 						</div>
 					</div>
