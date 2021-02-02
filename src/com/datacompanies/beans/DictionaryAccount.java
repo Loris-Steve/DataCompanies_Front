@@ -8,9 +8,26 @@ import java.util.Map;
 
 public class DictionaryAccount {
 
-	 private String siren = "siren";
 
-	 
+	private String siren = "siren";// i* (identite)
+
+	private String adresse = "adresse"; // i* 
+	
+	private String denomination = "denomination"; // i*
+	
+	private String chiffres_d_affaires_nets = "FJ.0";
+
+	private String resultat_d_exploitation_i_ii = "GG.0";
+	
+	private String  benefice_ou_perte = "HN.0"; // resultatNet | benefice_ou_perte_total_des_produits_total_des_charges
+
+	private String total_actif  = "CO.0"; // total_general_0_a_v
+	
+	private String date_cloture_exercice = "date_cloture_exercice"; // Ã  voir si on active le filtrage dessus ex:>,...)
+
+
+
+	
 	 private String actif = "AAAAAA";
 
 	 private String capital_souscrit_non_appele = "AA";
@@ -85,8 +102,6 @@ public class DictionaryAccount {
 
 	 private String ecarts_de_conversion_actif_v = "CN";
 
-	 private String total_general_0_a_v = "CO";
-
 	 private String parts_a_moins_d_un_an = "CP";
 
 	 private String parts_a_plus_d_un_an = "CR";
@@ -155,7 +170,7 @@ public class DictionaryAccount {
 
 	 private String v = "ED";
 
-	 private String total_general_i_a_v = "EE";
+	 private String total_passif = "EE"; // total_general_i_a_v
 
 	 private String dont_reserve_reglementee_des_plusvalues_a_long_terme = "EF";
 
@@ -172,8 +187,6 @@ public class DictionaryAccount {
 	 private String production_vendue_biens = "FD";
 
 	 private String production_vendue_services = "FG";
-
-	 private String chiffres_d_affaires_nets = "FJ";
 
 	 private String production_stockee = "FM";
 
@@ -214,8 +227,6 @@ public class DictionaryAccount {
 	 private String autres_charges = "GE";
 
 	 private String total_des_charges_d_exploitation_ii = "GF";
-
-	 private String resultat_d_exploitation_i_ii = "GG";
 
 	 private String benefice_attribue_ou_perte_transferee_iii = "GH";
 
@@ -274,8 +285,6 @@ public class DictionaryAccount {
 	 private String total_des_produits_i_iii_v_vii = "HL";
 
 	 private String total_des_charges_ii_iv_vi_viii_ix_x = "HM";
-
-	 private String benefice_ou_perte_total_des_produits_total_des_charges = "HN";
 
 	 private String renvois_creditbail_mobilier = "HP";
 
@@ -489,7 +498,10 @@ public class DictionaryAccount {
 		
 		stringAttributs.add("siren");
 		stringAttributs.add("denomination");
-
+		stringAttributs.add("adresse");
+		stringAttributs.add("denomination");
+		stringAttributs.add("date_cloture_exercice");
+		
 		return stringAttributs;
 	}
 	
@@ -561,6 +573,7 @@ public class DictionaryAccount {
 		return map;
 	}
 	
+	
 	public String getSiren() {
 		return siren;
 	}
@@ -569,6 +582,64 @@ public class DictionaryAccount {
 		this.siren = siren;
 	}
 
+	public String getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
+	}
+
+	public String getDenomination() {
+		return denomination;
+	}
+
+	public void setDenomination(String denomination) {
+		this.denomination = denomination;
+	}
+
+	public String getChiffres_d_affaires_nets() {
+		return chiffres_d_affaires_nets;
+	}
+
+	public void setChiffres_d_affaires_nets(String chiffres_d_affaires_nets) {
+		this.chiffres_d_affaires_nets = chiffres_d_affaires_nets;
+	}
+
+	public String getResultat_d_exploitation_i_ii() {
+		return resultat_d_exploitation_i_ii;
+	}
+
+	public void setResultat_d_exploitation_i_ii(String resultat_d_exploitation_i_ii) {
+		this.resultat_d_exploitation_i_ii = resultat_d_exploitation_i_ii;
+	}
+
+	public String getBenefice_ou_perte() {
+		return benefice_ou_perte;
+	}
+
+	public void setBenefice_ou_perte(String benefice_ou_perte) {
+		this.benefice_ou_perte = benefice_ou_perte;
+	}
+
+	public String getTotal_actif() {
+		return total_actif;
+	}
+
+	public void setTotal_actif(String total_actif) {
+		this.total_actif = total_actif;
+	}
+
+	public String getDate_cloture_exercice() {
+		return date_cloture_exercice;
+	}
+
+	public void setDate_cloture_exercice(String date_cloture_exercice) {
+		this.date_cloture_exercice = date_cloture_exercice;
+	}
+
+	
+	
 	public String getActif() {
 		return actif;
 	}
@@ -869,14 +940,6 @@ public class DictionaryAccount {
 		this.ecarts_de_conversion_actif_v = ecarts_de_conversion_actif_v;
 	}
 
-	public String getTotal_general_0_a_v() {
-		return total_general_0_a_v;
-	}
-
-	public void setTotal_general_0_a_v(String total_general_0_a_v) {
-		this.total_general_0_a_v = total_general_0_a_v;
-	}
-
 	public String getParts_a_moins_d_un_an() {
 		return parts_a_moins_d_un_an;
 	}
@@ -1153,12 +1216,13 @@ public class DictionaryAccount {
 		this.v = v;
 	}
 
-	public String getTotal_general_i_a_v() {
-		return total_general_i_a_v;
+
+	public String getTotal_passif() {
+		return total_passif;
 	}
 
-	public void setTotal_general_i_a_v(String total_general_i_a_v) {
-		this.total_general_i_a_v = total_general_i_a_v;
+	public void setTotal_passif(String total_passif) {
+		this.total_passif = total_passif;
 	}
 
 	public String getDont_reserve_reglementee_des_plusvalues_a_long_terme() {
@@ -1226,14 +1290,6 @@ public class DictionaryAccount {
 
 	public void setProduction_vendue_services(String production_vendue_services) {
 		this.production_vendue_services = production_vendue_services;
-	}
-
-	public String getChiffres_d_affaires_nets() {
-		return chiffres_d_affaires_nets;
-	}
-
-	public void setChiffres_d_affaires_nets(String chiffres_d_affaires_nets) {
-		this.chiffres_d_affaires_nets = chiffres_d_affaires_nets;
 	}
 
 	public String getProduction_stockee() {
@@ -1400,14 +1456,6 @@ public class DictionaryAccount {
 
 	public void setTotal_des_charges_d_exploitation_ii(String total_des_charges_d_exploitation_ii) {
 		this.total_des_charges_d_exploitation_ii = total_des_charges_d_exploitation_ii;
-	}
-
-	public String getResultat_d_exploitation_i_ii() {
-		return resultat_d_exploitation_i_ii;
-	}
-
-	public void setResultat_d_exploitation_i_ii(String resultat_d_exploitation_i_ii) {
-		this.resultat_d_exploitation_i_ii = resultat_d_exploitation_i_ii;
 	}
 
 	public String getBenefice_attribue_ou_perte_transferee_iii() {
@@ -1651,15 +1699,6 @@ public class DictionaryAccount {
 
 	public void setTotal_des_charges_ii_iv_vi_viii_ix_x(String total_des_charges_ii_iv_vi_viii_ix_x) {
 		this.total_des_charges_ii_iv_vi_viii_ix_x = total_des_charges_ii_iv_vi_viii_ix_x;
-	}
-
-	public String getBenefice_ou_perte_total_des_produits_total_des_charges() {
-		return benefice_ou_perte_total_des_produits_total_des_charges;
-	}
-
-	public void setBenefice_ou_perte_total_des_produits_total_des_charges(
-			String benefice_ou_perte_total_des_produits_total_des_charges) {
-		this.benefice_ou_perte_total_des_produits_total_des_charges = benefice_ou_perte_total_des_produits_total_des_charges;
 	}
 
 	public String getRenvois_creditbail_mobilier() {

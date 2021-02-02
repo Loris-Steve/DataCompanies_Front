@@ -124,11 +124,10 @@ public class SearchAccountForm {
 		if(less_than.size() > 0)
 			queryUser.put("less_than", less_than);
 		
-		if(queryUser.size() > 0)
-			System.out.println(queryUser);
-		else
-			System.out.println("query vide");
+		//if(queryUser.size() > 0)
+		//else System.out.println("query vide");
 
+		System.out.println(queryUser);
 
 		return queryUser;
 	}
