@@ -91,7 +91,7 @@ public class Search extends HttpServlet {
 		try {
 			// on créer une requête avec les valeurs saisies par l'utilisateur
 			queryUser = searchAccountform.verifyAttributs(request);
-			Requests req = new Requests("ec2-3-135-201-31.us-east-2.compute.amazonaws.com"); // localhost
+			Requests req = new Requests("localhost"); // localhost
 			result = req.doRequest(queryUser);
 			
 			System.out.println("Mango cursor : "+result.hasNext());
