@@ -36,14 +36,18 @@ public class SearchAccountForm {
 		
 		// j'ajoute l'option choisi par l'utilisateur à la requête
 		if(optionFilter.equals("1") ) {
-			more_than.put(attributCode,valAttribut);
+			more_than.put(attributCode, Integer.valueOf(valAttribut));
 		}
 		else if(optionFilter.equals("2")) {
-			equals_to.put(attributCode,valAttribut);
+			if(valAttribut.matches(".*\\d.*")){
+				equals_to.put(attributCode, Integer.valueOf(valAttribut));
+			}else{
+				equals_to.put(attributCode, valAttribut);
+			}
 			
 		}
 		else {
-			less_than.put(attributCode,valAttribut);
+			less_than.put(attributCode, Integer.valueOf(valAttribut));
 			
 		}
 	}
